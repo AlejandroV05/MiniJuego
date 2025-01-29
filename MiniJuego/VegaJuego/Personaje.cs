@@ -14,6 +14,21 @@ namespace VegaJuego
         private PictureBox caja = new PictureBox();
         private String direccion;
 
+        public Personaje(Level1 vegaZelda, int x, int y)
+        {
+            coordX = x;
+            coordY = y;
+            lienzo = vegaZelda;
+            direccion = "Derecha";
+            caja.Location = new System.Drawing.Point(coordX, coordY);
+            caja.BackColor = System.Drawing.Color.Transparent;
+            caja.Size = new System.Drawing.Size(110, 110);
+            caja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            caja.BackgroundImage = global::VegaJuego.Properties.Resources.derecha;
+
+            vegaZelda.Controls.Add(caja); caja.Visible = true;
+        }
+
         public String Direccion
         {
             get { return direccion; }
@@ -48,21 +63,6 @@ namespace VegaJuego
         //Mètodo que se definirà en cada clase hija
         public void mover()
         {
-        }
-
-        public  Personaje(Level1 vegaZelda, int x, int y)
-        {
-            coordX =x;
-            coordY =y;
-            lienzo = vegaZelda ;
-            direccion = "Derecha" ;
-            caja.Location =new System.Drawing.Point(coordX,coordY);
-            caja.BackColor = System.Drawing.Color.Transparent;
-            caja.Size = new System.Drawing.Size(110,110) ;
-            caja.BackgroundImageLayout =System.Windows.Forms.ImageLayout.None;
-            caja.BackgroundImage =global::VegaJuego.Properties.Resources.derecha;
-
-            vegaZelda.Controls.Add(caja); caja.Visible = true;
-        }
+        }       
     }
 }
